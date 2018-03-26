@@ -10,10 +10,10 @@
         <div class="padding-lg"></div>
         <div class="radio-lg">
           <ul>
-            <li class="active">
+            <li class="radio active" @click="dataSelect('data-2018-6-17')">
               <div class="context">6月17日</div>
             </li>
-            <li class="no-active">
+            <li class="radio no-active" @click="dataSelect('data-2018-12-16')">
               <div class="context">12月16日</div>
             </li>
           </ul>
@@ -35,6 +35,9 @@ export default {
   methods:{
     goCreatSelect(){
       this.$router.push({path:'/CreatSelect'})
+    },
+    dataSelect(id){
+      var 
     }
   }
 }
