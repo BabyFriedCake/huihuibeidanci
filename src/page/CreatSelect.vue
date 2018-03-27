@@ -37,7 +37,7 @@ export default {
       this.$router.push({path:'/CreatSelect'})
     },
     dataSelect(id){
-      var radio
+      var radio = 
     }
   }
 }
