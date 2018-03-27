@@ -11,8 +11,5 @@ export default {
 </script>
 <style lang="less" scoped>
 @import '../assets/css/variables.less';
-input:checked{
-  
-}
 </style>
 

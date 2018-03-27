@@ -1,5 +1,3 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import store from './store/index'
 import VueRouter from 'vue-router'
@@ -10,6 +8,7 @@ require('!style-loader!css-loader!less-loader!./assets/css/main.less');
 import index from './page/index.vue'
 import Creat from './page/Creat.vue'
 import CreatSelect from './page/CreatSelect.vue'
+import CreatFinish from './page/CreatFinish.vue'
 
 const router = new VueRouter({
   mode : 'history',
@@ -35,6 +34,10 @@ const router = new VueRouter({
       path: '/CreatSelect',
       component: CreatSelect
     },
+    {
+      path: '/CreatFinish',
+      component: CreatFinish
+    }
   ]
 })
 
@@ -42,6 +45,10 @@ const router = new VueRouter({
 new Vue({
   router,
   store,
+  data:{
+    examTime: '2017-6-17',
+    preExamDay: '90'
+  },
   template: `
     <div id="page">
       <transition name="fade" mode="out-in">      

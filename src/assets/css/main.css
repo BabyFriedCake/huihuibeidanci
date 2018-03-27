@@ -116,6 +116,9 @@ h6 {
 .text-size-lg {
   font-size: 150%;
 }
+.text-size-lg-note {
+  color: #999;
+}
 .bottomBtn {
   position: fixed;
   bottom: 0px;
