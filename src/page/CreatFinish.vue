@@ -3,16 +3,18 @@
       <header-lg bigTitle="CET-4" noticeTitle="四级单词记忆管理"></header-lg>
       <div class="padding-md">
         <div class="text-size-lg">真实姓名</div>
-        <input type="text">
+        <input type="text" v-model="name">
+        <div class="padding-sm"></div>
         <div class="text-size-lg">注册手机号</div>
-        <input type="text">
+        <input type="text" v-model="phone" onkeyup="this.value=this.value.replace(/\D/g,'')">
         <div class="padding-md"></div>
         <div class="text-size-lg">性别</div>
+        <div class="padding-sm"></div>
         <ul class="radio-sm">
-          <li class="radiosm active" id="data-90" @click="preExamDay('data-90')">
+          <li class="radiosm active" id="sex-1" @click="sex('sex-1')">
             <div class="context">男</div>
           </li>
-          <li class="radiosm no-active" id="data-60" @click="preExamDay('data-60')">
+          <li class="radiosm no-active" id="sex-2" @click="sex('sex-2')">
             <div class="context">女</div>
           </li>
         </ul>
@@ -28,9 +30,24 @@ import navBtn from "../components/nav-btn.vue";
 export default {
   name:'CreatFinish',
   components:{headerLg,navBtn},
+  data(){
+    return {
+      phone:'13333333333',
+      name:'wos',
+      sex:""
+    }
+  },
   methods:{
     goFinish(){
       this.$router.push({path:'/Creat'})
+    },
+    sex(id){
+      var sexs = document.getElementsByClassName('radiosm');
+      for (let i = 0; i < sexs.length; i++) {
+        sexs[i].setAttribute("class","radiosm no-active")
+      }
+      document.getElementById(id).setAttribute("class","radiosm active")
+      this.sex = id.replace(/sex-/g,'')
     }
   }
 }
@@ -42,6 +59,9 @@ input{
   width: 100%;
   height: 38px;
   margin: 20px 0 0 0;
+  font-size: 100%;
+  color: #666;
+  text-indent: 5px;
 }
 .radio-sm{
   li{
