@@ -13,7 +13,6 @@ xmlhttp.onreadystatechange = function () {
 }
 xmlhttp.open('GET','http://localhost/json/users.php',false)
 xmlhttp.send()
-console.log(state)
 export default new Vuex.Store({
     state
 })

@@ -32,14 +32,23 @@ export default {
   components:{headerLg,navBtn},
   data(){
     return {
-      phone:'13333333333',
-      name:'wos',
-      sex:"1"
+      phone:'',
+      name:'',
+      sex:''
     }
   },
   methods:{
     goCreatSuccess(){
-      this.$router.push({path:'/CreatSuccess'})
+      if(this.name.length != 0 && this.phone.length != 0){
+        var formData = new FormData()
+        formData.append("name",this.name)
+        formData.append("phone",this.phone)
+        formData.append("sex",this.sex)
+        formData.append("examTime",this.$parent.examTime)
+        formData.append("preExamDay",this.$parent.preExamDay)
+        console.log(formData.get("name"))
+      }
+      // this.$router.push({path:'/CreatSuccess'})
     },
     sexSelect(id){
       var sexs = document.getElementsByClassName('radiosm');

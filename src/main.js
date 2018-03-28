@@ -67,10 +67,10 @@ new Vue({
       router.push({ path: '/error' })
     }
     //判断是否为注册用户
-    if (this.$store.state.newid == 1){
-      router.push({ path:'/'})
-    }else{
-      router.push({ path: '/Creat' })
-    }
+    // if (this.$store.state.newid == 1){
+    //   router.push({ path:'/'})
+    // }else{
+    //   router.push({ path: '/Creat' })
+    // }
   }
 }).$mount('#app')
