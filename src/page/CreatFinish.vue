@@ -11,21 +11,21 @@
         <div class="text-size-lg">性别</div>
         <div class="padding-sm"></div>
         <ul class="radio-sm">
-          <li class="radiosm active" id="sex-1" @click="sex('sex-1')">
+          <li class="radiosm active" id="sex-1" @click="sexSelect('sex-1')">
             <div class="context">男</div>
           </li>
-          <li class="radiosm no-active" id="sex-2" @click="sex('sex-2')">
+          <li class="radiosm no-active" id="sex-2" @click="sexSelect('sex-2')">
             <div class="context">女</div>
           </li>
         </ul>
         <div class="cf"></div>
       </div>
       my is {{this.$parent.examTime}}&{{this.$parent.preExamDay}}
-    <nav-btn @click.native="goFinish()" val="完成注册" color="orange" class="bottomBtn"></nav-btn>
+    <nav-btn @click.native="goCreatSuccess()" val="完成注册" color="orange" class="bottomBtn"></nav-btn>
   </div>
 </template>
 <script>
-import headerLg from "../components/header-lg";
+import headerLg from "../components/header-lg.vue";
 import navBtn from "../components/nav-btn.vue";
 export default {
   name:'CreatFinish',
@@ -34,20 +34,21 @@ export default {
     return {
       phone:'13333333333',
       name:'wos',
-      sex:""
+      sex:"1"
     }
   },
   methods:{
-    goFinish(){
-      this.$router.push({path:'/Creat'})
+    goCreatSuccess(){
+      this.$router.push({path:'/CreatSuccess'})
     },
-    sex(id){
+    sexSelect(id){
       var sexs = document.getElementsByClassName('radiosm');
       for (let i = 0; i < sexs.length; i++) {
         sexs[i].setAttribute("class","radiosm no-active")
       }
       document.getElementById(id).setAttribute("class","radiosm active")
       this.sex = id.replace(/sex-/g,'')
+      console.log(this.sex)
     }
   }
 }
