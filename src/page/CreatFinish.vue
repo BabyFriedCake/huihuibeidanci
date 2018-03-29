@@ -47,8 +47,18 @@ export default {
         formData.append("examTime",this.$parent.examTime)
         formData.append("preExamDay",this.$parent.preExamDay)
         console.log(formData.get("name"))
+        this.$ajax({
+            method: 'post',
+            url: "http://"+this.$store.state.serverIP+"/json/post_reguser.php",
+            data: formData
+        }).then(function(res){
+          if(res.data = 1){
+            this.$router.push({path:'/CreatSuccess'})
+          }
+        }.bind(this)).catch(function(err){
+          this.$router.push({path:'/errorPage'})
+        }.bind(this))
       }
-      // this.$router.push({path:'/CreatSuccess'})
     },
     sexSelect(id){
       var sexs = document.getElementsByClassName('radiosm');

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import store from './store/index'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+import axios from 'axios'
+Vue.prototype.$ajax = axios
 
 require('!style-loader!css-loader!less-loader!./assets/css/main.less');
 
