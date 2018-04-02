@@ -1,7 +1,7 @@
 <template>
   <div id="header-md">
     <h3 class="fl">{{Tit}}</h3>
-    <div class="fr" v-show="meunBtn">
+    <div class="fr" v-show="meunBtn" @click="openMenu">
       <img src="../assets/images/menu.png" alt="">
     </div> 
     <div class="cf"></div>
@@ -14,10 +14,15 @@ export default {
   computed:{
     meunBtn(){
       if(this.show == 'y'){
-        return this.meunBtn = true
+        return true
       }else{
-        return this.meunBtn = false
+        return false
       }
+    }
+  },
+  methods:{
+    openMenu(){
+      this.$store.state.leftShow = true
     }
   }
 }
