@@ -11,13 +11,8 @@
 export default {
   name:'header-md',
   props:['Tit','show'],
-  data(){
-    return{
-      meunBtn: true
-    }
-  },
   computed:{
-    meunBtn:function(){
+    meunBtn(){
       if(this.show == 'y'){
         return this.meunBtn = true
       }else{

@@ -1,12 +1,14 @@
 <template>
   <div id="index">
-      <div @click="goCreat">my name is index !</div>
+      <headerMd Tit="CET-4" show="y"></headerMd>
   </div>
 </template>
 <script>
 //导入
+import headerMd from '../components/header-md.vue'
 export default { 
   name : 'index',
+  components:{headerMd},
   methods:{
     goCreat(){
       this.$router.push({path:'/Creat'})
@@ -18,7 +20,5 @@ export default {
 @import '../assets/css/variables.less';
 #index{
   width: 100%;
-  height: 2000px;
-  background-color: @green;
 }
 </style>
